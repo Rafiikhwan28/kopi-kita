@@ -16,7 +16,7 @@ function AppWrapper() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Tentukan halaman yang tidak perlu menampilkan Navbar
-  const hideNavbarRoutes = ['/home', '/login', '/register'];
+  const hideNavbarRoutes = ['/', '/login', '/register'];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (

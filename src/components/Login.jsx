@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import "./login.css"
+import './login.css'; // Pastikan nama file sesuai persis
 
 function Login() {
   const navigate = useNavigate();
@@ -10,6 +10,7 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (email && password) {
+      // Simulasikan login sukses
       navigate('/home');
     } else {
       alert('Email dan password wajib diisi!');
@@ -35,7 +36,9 @@ function Login() {
           required
         />
         <button type="submit">Masuk</button>
-        <p>Belum punya akun? <Link to="/register">Daftar</Link></p>
+        <p>
+          Belum punya akun? <Link to="/register">Daftar</Link>
+        </p>
       </form>
     </div>
   );

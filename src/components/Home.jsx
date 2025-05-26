@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  // Import Link
 import products from '../data/products';
 import './Home.css';
+import Navbar from './Navbar/Navbar';
 
 function Home({ cart, setCart }) {
   const [search, setSearch] = useState('');
