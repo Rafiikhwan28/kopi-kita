@@ -1,0 +1,105 @@
+/* src/components/navbar.css */
+.navbar {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.navbar-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Stylish Button */
+.logout-button,
+.navbar-menu a[href="/register"],
+.navbar-menu a[href="/"] {
+  background-color: white;
+  color: #007bff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-button:hover,
+.navbar-menu a[href="/register"]:hover,
+.navbar-menu a[href="/"]:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    display: none;
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu a,
+  .logout-button {
+    width: 100%;
+    text-align: center;
+  }
+}

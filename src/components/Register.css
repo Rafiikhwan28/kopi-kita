@@ -1,0 +1,100 @@
+/* Gaya dasar */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Latar belakang dan posisi konten tengah */
+.form-container {
+  background: url('https://i.pinimg.com/736x/3a/06/94/3a0694ed94296bfc5da8939622766a40.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh; /* supaya full viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* agar tidak mepet di layar kecil */
+  box-sizing: border-box;
+}
+
+/* Efek form transparan dengan blur */
+form {
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+
+/* Judul form */
+form h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+}
+
+/* Input style */
+form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0.7rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+}
+
+/* Tombol daftar */
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Teks bawah form */
+form p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Link teks */
+form p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+}

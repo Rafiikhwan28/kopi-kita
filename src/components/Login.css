@@ -1,0 +1,98 @@
+/* Gaya latar dan form login/register */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container {
+  /* Background image full cover, no posong */
+  background: url('https://i.pinimg.com/736x/3a/06/94/3a0694ed94296bfc5da8939622766a40.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  /* Pastikan container menutup penuh layar */
+  min-height: 100vh;
+
+  /* Flexbox untuk center form */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Beri padding agar tidak terlalu mepet di layar kecil */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+form {
+  background-color: rgba(255, 255, 255, 0.65); /* Transparansi */
+  backdrop-filter: blur(12px); /* Blur lembut */
+  -webkit-backdrop-filter: blur(12px); /* Support Safari */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+
+form h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+}
+
+form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0.7rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+form p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+form p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem; /* Padding agar tidak mepet */
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+}

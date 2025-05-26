@@ -1,0 +1,64 @@
+.landing-container {
+  background: url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.landing-content {
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+}
+
+.landing-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.landing-content h1 span {
+  color: #00bfff;
+}
+
+.landing-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.landing-buttons .btn-register,
+.landing-buttons .btn-login {
+  background-color: #00bfff;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.landing-buttons .btn-login {
+  background-color: transparent;
+  border: 2px solid #00bfff;
+}
+
+.landing-buttons .btn-register:hover,
+.landing-buttons .btn-login:hover {
+  background-color: #007bbf;
+  color: white;
+}
