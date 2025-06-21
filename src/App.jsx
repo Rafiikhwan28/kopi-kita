@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
@@ -10,17 +11,18 @@ import Navbar from './components/Navbar/Navbar';
 import ProductDetail from './components/ProductDetail';
 import Menu from './components/Menu';
 import Kontak from './components/Kontak';
-import Footer from './components/Footer'; // ✅ Footer sudah diimport
+import Footer from './components/Footer';
 import MenuDetail from './components/MenuDetail';
-import './App.css';
 import Profile from './components/Profil';
+
+import './App.css';
 
 function AppWrapper() {
   const location = useLocation();
   const [cart, setCart] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Tentukan halaman yang tidak perlu menampilkan Navbar
+  // Halaman tanpa Navbar
   const hideNavbarRoutes = ['/', '/login', '/register'];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
@@ -43,13 +45,12 @@ function AppWrapper() {
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
         <Route path="/kontak" element={<Kontak />} />
-        <Route path="/menu" element={<Menu cart={cart}  setCart={setCart}/>} />
-        <Route path="/menu/:id" element={<MenuDetail cart={cart} setCart={setCart}/>} /> {/* ← Ubah ke MenuDetail */}
+        <Route path="/menu" element={<Menu cart={cart} setCart={setCart} />} />
+        <Route path="/menu/:id" element={<MenuDetail cart={cart} setCart={setCart} />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
 
-      {/* ✅ Footer ditempatkan DI LUAR Routes agar tampil di semua halaman */}
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -13,7 +13,7 @@ body, html {
 /* Container utama login */
 .form-container {
   /* Background image full cover, tidak kosong */
-  background: url('https://i.pinimg.com/736x/3a/06/94/3a0694ed94296bfc5da8939622766a40.jpg') no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1559305616-3f99cd43e353?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGNhZmV8ZW58MHx8MHx8fDA%3D') no-repeat center center fixed;
   background-size: cover;
   background-color: #f4f4f4; /* Fallback jika gambar tidak dimuat */
 

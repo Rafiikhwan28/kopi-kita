@@ -11,10 +11,9 @@ function Register() {
     e.preventDefault();
 
     if (email && password) {
-      // Simpan data ke localStorage (simulasi penyimpanan akun user)
-      localStorage.setItem('registeredUser', JSON.stringify({ email, password }));
-
-      alert('Pendaftaran berhasil!');
+      const newUser = { email, password };
+      localStorage.setItem('registeredUser', JSON.stringify(newUser));
+      alert('Pendaftaran berhasil! Silakan login.');
       navigate('/login');
     } else {
       alert('Mohon isi email dan password dengan benar.');
@@ -23,24 +22,26 @@ function Register() {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleRegister}>
-        <h2>Daftar</h2>
+      <form onSubmit={handleRegister} className="register-form">
+        <h2>Daftar Akun KopiKita</h2>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Masukkan Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Masukkan Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Daftar</button>
-        <p>Sudah punya akun? <Link to="/login">Login</Link></p>
+        <button type="submit" className="register-btn">Daftar</button>
+        <p>
+          Sudah punya akun? <Link to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );
