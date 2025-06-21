@@ -1,0 +1,85 @@
+.menu-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.menu-detail-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.menu-detail-content {
+  text-align: center;
+}
+
+.menu-detail-content h2 {
+  font-size: 2rem;
+  color: #0d47a1;
+  margin-bottom: 0.5rem;
+}
+
+.menu-detail-content p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.product-price {
+  color: #2e7d32;
+  margin-bottom: 1.5rem;
+}
+
+.menu-detail-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.add-to-cart-btn {
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #1b5e20;
+}
+
+.menu-back-button {
+  padding: 0.6rem 1.2rem;
+  background-color: #0d47a1;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.menu-back-button:hover {
+  background-color: #08306b;
+}
+
+/* RESPONSIF */
+@media (max-width: 480px) {
+  .menu-detail-content h2 {
+    font-size: 1.5rem;
+  }
+  .menu-detail-content p {
+    font-size: 0.95rem;
+  }
+}

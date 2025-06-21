@@ -8,7 +8,12 @@ import Checkout from './components/Checkout';
 import LandingPage from './components/LandingPage';
 import Navbar from './components/Navbar/Navbar';
 import ProductDetail from './components/ProductDetail';
+import Menu from './components/Menu';
+import Kontak from './components/Kontak';
+import Footer from './components/Footer'; // ✅ Footer sudah diimport
+import MenuDetail from './components/MenuDetail';
 import './App.css';
+import Profile from './components/Profil';
 
 function AppWrapper() {
   const location = useLocation();
@@ -34,11 +39,17 @@ function AppWrapper() {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home cart={cart} setCart={setCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
-        <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
+        <Route path="/kontak" element={<Kontak />} />
+        <Route path="/menu" element={<Menu cart={cart}  setCart={setCart}/>} />
+        <Route path="/menu/:id" element={<MenuDetail cart={cart} setCart={setCart}/>} /> {/* ← Ubah ke MenuDetail */}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
+
+      {/* ✅ Footer ditempatkan DI LUAR Routes agar tampil di semua halaman */}
+      <Footer/>
     </>
   );
 }

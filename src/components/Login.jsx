@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import "./Login.css";
+import './Login.css';
 
-function Login() {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email && password) {
-      // Simulasikan login sukses
+
+    const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
+
+    if (
+      registeredUser &&
+      email === registeredUser.email &&
+      password === registeredUser.password
+    ) {
+      localStorage.setItem('token', 'dummyToken12345'); // Simulasi token
+      setIsLoggedIn(true);
       navigate('/home');
     } else {
-      alert('Email dan password wajib diisi!');
+      alert('Email atau password salah atau belum terdaftar!');
     }
   };
 
@@ -36,9 +44,7 @@ function Login() {
           required
         />
         <button type="submit">Masuk</button>
-        <p>
-          Belum punya akun? <Link to="/register">Daftar</Link>
-        </p>
+        <p>Belum punya akun? <Link to="/register">Daftar</Link></p>
       </form>
     </div>
   );

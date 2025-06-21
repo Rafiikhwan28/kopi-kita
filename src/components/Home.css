@@ -1,100 +1,132 @@
-/* src/pages/Home.css */
 .home-container {
-  padding: 1rem;
-  background: url('https://img.freepik.com/free-vector/top-view-cup-coffee-with-roasted-beans_52683-32340.jpg') no-repeat center center fixed;
-  background-size: cover;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertikal tengah */
+  align-items: center;     /* Horizontal tengah */
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #fafafa 0%, #e3f2fd 100%);
   font-family: 'Segoe UI', sans-serif;
-  color: #4e342e;
-  /* agar teks mudah dibaca di background */
-  background-blend-mode: lighten;
-  background-color: rgba(255, 253, 231, 0.85);
-}
-
-.search-bar {
+  color: #0d47a1;
   text-align: center;
-  margin: 20px 0;
 }
 
-.search-bar input {
-  width: 90%;
-  max-width: 400px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.home-header {
+  margin-bottom: 2rem;
+}
+
+.home-header h1 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  color: #0d47a1;
 }
 
 .product-grid {
-  display: grid;
-  gap: 1.5rem;
-  /* 4 kolom tetap saat layar besar */
-  grid-template-columns: repeat(4, 1fr);
-  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
-@media (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* Card Produk */
 .product-card {
-  background: rgba(255, 248, 225, 0.9);
-  border: 1px solid #ffe082;
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
-.product-card img {
-  width: 100%;
-  height: 160px;
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-image {
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
 }
 
-.product-card h3 {
-  font-size: 1.1rem;
-  color: #4e342e;
+.product-content {
+  padding: 1rem;
+  text-align: center;
+  flex-grow: 1;
 }
 
-.product-card p {
-  color: #6d4c41;
-  font-weight: bold;
+.product-title {
+  color: #0d47a1;
+  font-weight: 600;
+  margin-bottom: 8px;
+  min-height: 48px;
 }
 
-.product-card button {
-  background-color: #ff9800;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  margin-top: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.product-price {
+  color: #1565c0;
+  font-weight: 500;
 }
 
-.product-card button:hover {
-  background-color: #f57c00;
+.add-cart-button {
+  background-color: #1565c0 !important;
+  color: #fff !important;
+  font-weight: 500;
+  text-transform: none;
+  border-radius: 0 0 16px 16px;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.add-cart-button:hover {
+  background-color: #0d47a1 !important;
+}
+
+
+.home-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #fafafa 0%, #e3f2fd 100%);
+  font-family: 'Segoe UI', sans-serif;
+  color: #0d47a1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Tengah horizontal */
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px; /* Agar tidak terlalu melebar */
+  justify-items: center; /* Tengah isi grid */
+}
+
+
+
+/* RESPONSIF */
+@media (max-width: 600px) {
+  .home-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .product-image {
+    height: 160px;
+  }
+
+  .add-cart-button {
+    font-size: 0.9rem;
+  }
 }

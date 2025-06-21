@@ -1,105 +1,71 @@
-/* src/components/navbar.css */
-.navbar {
-  background: linear-gradient(to right, #007bff, #00c6ff);
-  color: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+.navbar-appbar {
+  background-color: #442c2e; /* Warna cokelat kopi */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.navbar-container {
+.navbar-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: white;
+.navbar-logo {
+  color: #ffe0b2;
   text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: white;
-  display: none;
-  cursor: pointer;
-}
-
-.navbar-menu {
   display: flex;
-  gap: 1.2rem;
   align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-.navbar-menu a {
-  color: white;
+.navbar-logo:hover {
+  color: #fff3e0;
+}
+
+.navbar-desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-desktop-menu a {
+  color: #ffe0b2;
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: background 0.3s;
 }
 
-.navbar-menu a:hover {
-  background: rgba(255, 255, 255, 0.2);
+.navbar-desktop-menu a:hover {
+  color: #fff3e0;
 }
 
-/* Stylish Button */
-.logout-button,
-.navbar-menu a[href="/register"],
-.navbar-menu a[href="/"] {
-  background-color: white;
-  color: #007bff;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+.menu-icon-button {
+  display: none;
+  color: #ffe0b2;
 }
 
-.logout-button:hover,
-.navbar-menu a[href="/register"]:hover,
-.navbar-menu a[href="/"]:hover {
-  background-color: #e6f0ff;
-  transform: translateY(-1px);
+.navbar-drawer {
+  width: 250px;
+  padding-top: 1rem;
+  background-color: #442c2e;
+  height: 100%;
+  color: #ffe0b2;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+.navbar-drawer .MuiListItemButton-root {
+  color: #ffe0b2;
+}
 
-  .navbar-menu {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 1rem;
+.navbar-drawer .MuiListItemButton-root:hover {
+  background-color: #5d4037;
+}
+
+@media (max-width: 900px) {
+  .navbar-desktop-menu {
     display: none;
-    background: linear-gradient(to right, #007bff, #00c6ff);
-    padding: 1rem;
-    border-radius: 0.5rem;
   }
 
-  .navbar-menu.active {
-    display: flex;
-  }
-
-  .navbar-menu a,
-  .logout-button {
-    width: 100%;
-    text-align: center;
+  .menu-icon-button {
+    display: block;
   }
 }

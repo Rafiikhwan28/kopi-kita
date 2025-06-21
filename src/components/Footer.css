@@ -1,0 +1,58 @@
+.footer-custom {
+  background-color: #3e2723;       /* Coklat gelap khas kopi */
+  color: #fbe9e7;                  /* Warna teks krem */
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.footer-custom .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: #ffe0b2;
+}
+
+.footer-custom a {
+  color: #fbe9e7;
+  font-size: 0.95rem;
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.footer-custom a:hover {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+
+.footer-custom .MuiTypography-h6 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffe0b2;
+}
+
+.footer-custom .MuiTypography-body2 {
+  color: #d7ccc8;
+  font-size: 0.9rem;
+}
+
+.footer-custom .MuiIconButton-root {
+  color: #fbe9e7;
+  transition: color 0.3s ease;
+  padding: 6px;
+}
+
+.footer-custom .MuiIconButton-root:hover {
+  color: #ffb74d;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 600px) {
+  .footer-custom {
+    text-align: center;
+  }
+
+  .footer-custom .MuiGrid-item {
+    margin-bottom: 1rem;
+  }
+}
