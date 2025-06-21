@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import products from '../data/products';
-import { Grid, Card, CardContent, CardMedia, Typography, Button, TextField, Container } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import './Home.css';
+import './Home.css'; // Gunakan CSS yang sama untuk konsistensi
 
 function Home({ cart, setCart }) {
   const [search, setSearch] = useState('');
@@ -25,56 +23,50 @@ function Home({ cart, setCart }) {
   };
 
   return (
-    <Container className="home-container" maxWidth="xl">
-      <header className="home-header">
-        <h1>Temukan Produk Kopi Terbaik</h1>
-        <TextField
-          variant="outlined"
-          fullWidth
+    <div className="menu-page">
+      <h2>Temukan Produk Kopi Terbaik</h2>
+
+      <div style={{ maxWidth: '500px', margin: '0 auto 2rem' }}>
+        <input
+          type="text"
           placeholder="Cari produk kopi..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          sx={{ backgroundColor: '#fff', borderRadius: 1, maxWidth: '500px' }}
+          style={{
+            width: '100%',
+            padding: '0.6rem 1rem',
+            borderRadius: '6px',
+            border: '1px solid #ccc',
+            fontSize: '1rem'
+          }}
         />
-      </header>
+      </div>
 
-      <Grid container spacing={3} className="product-grid">
+      <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-              <Card className="product-card">
-                <Link to={`/product/${product.id}`} className="product-link">
-                  <CardMedia
-                    component="img"
-                    height="180"
-                    image={product.image}
-                    alt={product.name}
-                    className="product-image"
-                  />
-                  <CardContent className="product-content">
-                    <Typography variant="h6" className="product-title">{product.name}</Typography>
-                    <Typography variant="body2" className="product-price">Rp {product.price.toLocaleString()}</Typography>
-                  </CardContent>
+            <div className="product-card" key={product.id}>
+              <img src={product.image} alt={product.name} />
+              <h3>{product.name}</h3>
+              <p>Rp {product.price.toLocaleString()}</p>
+              <div className="product-actions">
+                <Link to={`/product/${product.id}`} className="detail-btn">
+                  Detail
                 </Link>
-                <Button
-                  variant="contained"
-                  startIcon={<ShoppingCartIcon />}
-                  fullWidth
+                <button
+                  className="add-cart-btn"
                   onClick={() => addToCart(product)}
-                  className="add-cart-button"
                 >
-                  Tambah ke Keranjang
-                </Button>
-              </Card>
-            </Grid>
+                  + Keranjang
+                </button>
+              </div>
+            </div>
           ))
         ) : (
-          <Typography variant="h6" color="text.secondary" align="center" sx={{ mt: 4, width: '100%' }}>
-            Produk tidak ditemukan.
-          </Typography>
+          <p style={{ color: '#999', fontSize: '1.1rem' }}>Produk tidak ditemukan.</p>
         )}
-      </Grid>
-    </Container>
+      </div>
+    </div>
   );
 }
 
