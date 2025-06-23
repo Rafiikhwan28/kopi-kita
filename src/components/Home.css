@@ -1,41 +1,70 @@
-.menu-page {
-  padding: 2rem 1rem;
+.home-page {
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
+  color: #0d47a1;
 }
 
-.menu-page h2 {
-  color: #0d47a1;
+/* ===== BANNER ===== */
+.banner-section {
+  background: url('https://png.pngtree.com/background/20230412/original/pngtree-coffee-illustration-background-border-picture-image_2396475.jpg') center/cover no-repeat;
+  position: relative;
+  color: #fff;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
-/* Tombol Kategori (bisa dipakai kalau nanti ada filter kategori) */
-.category-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+.banner-search {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
 }
 
-.category-buttons button {
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  border: 1px solid #0d47a1;
-  background-color: #fff;
+/* ===== SECTION PRODUK ===== */
+.product-section {
+  padding: 4rem 1rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  font-size: 2.2rem;
   color: #0d47a1;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s ease;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-align: center;
 }
 
-.category-buttons button.active,
-.category-buttons button:hover {
-  background-color: #0d47a1;
-  color: #fff;
-}
-
-/* Grid Produk */
+/* ===== GRID PRODUK ===== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -45,23 +74,23 @@
   margin: 0 auto;
 }
 
-/* Kartu Produk */
+/* ===== KARTU PRODUK ===== */
 .product-card {
-  background: #f9f9f9;
-  border-radius: 10px;
+  background: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .product-card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
 }
 
@@ -77,45 +106,64 @@
   padding: 0 0.5rem 1rem;
 }
 
+/* ===== BUTTON ===== */
 .product-actions {
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem 1rem 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.detail-btn, .add-cart-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .detail-btn {
-  padding: 6px 12px;
-  background-color: #1976d2;
+  background-color: #6a1b9a;
   color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
 }
 
 .detail-btn:hover {
-  background-color: #0d47a1;
+  background-color: #4a148c;
 }
 
 .add-cart-btn {
-  padding: 6px 12px;
   background-color: #2e7d32;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .add-cart-btn:hover {
   background-color: #1b5e20;
 }
 
-/* RESPONSIF MOBILE */
+/* ===== RESPONSIF ===== */
+@media (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+
+  .banner-search {
+    font-size: 0.95rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 480px) {
-  .category-buttons {
-    flex-direction: column;
-    gap: 0.8rem;
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }
