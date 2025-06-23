@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemButton,
@@ -10,9 +10,10 @@ import CoffeeIcon from '@mui/icons-material/Coffee';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './navbar.css';
 
-const Navbar = ({ cartCount, isLoggedIn, setIsLoggedIn }) => {
+const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [profileMenuAnchor, setProfileMenuAnchor] = useState(null);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
@@ -26,11 +27,18 @@ const Navbar = ({ cartCount, isLoggedIn, setIsLoggedIn }) => {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     handleProfileMenuClose();
     setDrawerOpen(false);
+    onLogout(); // <-- panggil fungsi logout dari AppWrapper
     navigate('/login');
   };
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    setUser(storedUser);
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -68,6 +76,9 @@ const Navbar = ({ cartCount, isLoggedIn, setIsLoggedIn }) => {
                   open={Boolean(profileMenuAnchor)}
                   onClose={handleProfileMenuClose}
                 >
+                  {user && (
+                    <MenuItem disabled>{user.name}</MenuItem>
+                  )}
                   <MenuItem component={Link} to="/profile" onClick={handleProfileMenuClose}>Profil</MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>

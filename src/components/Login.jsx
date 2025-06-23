@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login({ setIsLoggedIn }) {
+function Login({ onLogin }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,14 +18,19 @@ function Login({ setIsLoggedIn }) {
       email === registeredUser.email &&
       password === registeredUser.password
     ) {
-      localStorage.setItem('token', 'dummyToken12345'); // Simulasi token
-      setIsLoggedIn(true);
+      const token = 'dummyToken12345'; // Simulasi token dari server / API
+      localStorage.setItem('token', token);
 
-      // Simpan data user untuk profile
-      localStorage.setItem('user', JSON.stringify({
-        name: email.split('@')[0], // Nama default dari email (sebelum @)
-        email
-      }));
+      // Simpan data user untuk halaman profil, dll
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          name: email.split('@')[0], // nama default dari email
+          email,
+        })
+      );
+
+      onLogin(token); // panggil fungsi onLogin untuk setIsLoggedIn + penyimpanan token
 
       navigate('/home');
     } else {

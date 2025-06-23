@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Login from './components/Login';
@@ -22,7 +22,25 @@ function AppWrapper() {
   const [cart, setCart] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Halaman tanpa Navbar
+  // ✅ Cek token di localStorage saat pertama kali component dimuat
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = (token) => {
+    localStorage.setItem('token', token);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setIsLoggedIn(false);
+  };
+
   const hideNavbarRoutes = ['/', '/login', '/register'];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
@@ -32,13 +50,13 @@ function AppWrapper() {
         <Navbar
           cartCount={cart.length}
           isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
+          onLogout={handleLogout}
         />
       )}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home cart={cart} setCart={setCart} />} />
         <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
