@@ -11,6 +11,7 @@ function Home({ cart, setCart }) {
   );
 
   const addToCart = (product) => {
+    
     const existingItem = cart.find(item => item.id === product.id);
     if (existingItem) {
       const updatedCart = cart.map(item =>

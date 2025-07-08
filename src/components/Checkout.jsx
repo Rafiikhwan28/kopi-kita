@@ -29,7 +29,7 @@ function Checkout({ cart }) {
       return;
     }
 
-    const phoneNumber = '6288970469778'; // Ganti sesuai nomor admin
+    const phoneNumber = '6287835759531'; // Ganti sesuai nomor admin
     const url = `https://wa.me/${phoneNumber}?text=${generateWhatsAppMessage()}`;
     window.open(url, '_blank');
   };

@@ -31,7 +31,7 @@ function Login({ onLogin }) {
       );
 
       onLogin(token); // panggil fungsi onLogin untuk setIsLoggedIn + penyimpanan token
-
+      alert('Berhasil Login, Masuk ke halaman website.....!');
       navigate('/home');
     } else {
       alert('Email atau password salah atau belum terdaftar!');
